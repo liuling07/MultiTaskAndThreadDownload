@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="horizontal"
+	android:paddingTop="12dp"
+	android:paddingBottom="12dp"
+	android:gravity="center_vertical"
+    android:descendantFocusability="blocksDescendants" >
+
+	<ImageView
+		android:id="@+id/status_icon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="12dp"
+		android:src="@drawable/ic_no_download"/>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:orientation="vertical"
+		android:gravity="center_vertical"
+		android:layout_marginRight="12dip">
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView
+				android:id="@+id/name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:text="奇趣营" />
+			<TextView
+				android:id="@+id/download_percent"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:singleLine="true"
+				android:text="已下载0%" />
+		</RelativeLayout>
+
+		<ProgressBar
+			android:id="@+id/progressbar"
+			style="?android:attr/progressBarStyleHorizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="2dp"
+			android:layout_marginTop="8dp"
+			android:max="100"/>
+
+	</LinearLayout>
+
+</LinearLayout>
