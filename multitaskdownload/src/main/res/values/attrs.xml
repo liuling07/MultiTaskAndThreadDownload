@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DownloadPercentView">
+        <attr name="radius" format="dimension"/>
+        <attr name="notBeginImg" format="string"/>
+        <attr name="waitImg" format="string"/>
+        <attr name="pausedImg" format="string"/>
+        <attr name="finishedImg" format="string"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+    </declare-styleable>
+    
+</resources>

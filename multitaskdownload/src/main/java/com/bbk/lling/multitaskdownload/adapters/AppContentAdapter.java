@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bbk.lling.multitaskdownload.R;
 import com.bbk.lling.multitaskdownload.beans.AppContent;
+import com.bbk.lling.multitaskdownload.view.DownloadPercentView;
 
 import java.util.List;
 
@@ -55,7 +55,7 @@ public class AppContentAdapter extends BaseAdapter{
             holder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(
                     R.layout.listitem_download, null);
-            holder.statusIcon = (ImageView) convertView.findViewById(R.id.status_icon);
+            holder.statusIcon = (DownloadPercentView) convertView.findViewById(R.id.status_icon);
             holder.name = (TextView) convertView.findViewById(R.id.name);
             holder.downloadPercent = (TextView) convertView.findViewById(R.id.download_percent);
             holder.progressBar = (ProgressBar) convertView.findViewById(R.id.progressbar);
@@ -81,6 +81,7 @@ public class AppContentAdapter extends BaseAdapter{
             holder.downloadPercent.setVisibility(View.INVISIBLE);
         } else {
             holder.downloadPercent.setVisibility(View.VISIBLE);
+            holder.statusIcon.setProgress(appContent.getDownloadPercent());
             holder.downloadPercent.setText("下载进度：" + appContent.getDownloadPercent() + "%");
         }
     }
@@ -97,7 +98,7 @@ public class AppContentAdapter extends BaseAdapter{
         }
         //从view中取得holder
         ViewHolder holder = (ViewHolder) view.getTag();
-        holder.statusIcon = (ImageView) view.findViewById(R.id.status_icon);
+        holder.statusIcon = (DownloadPercentView) view.findViewById(R.id.status_icon);
         holder.name = (TextView) view.findViewById(R.id.name);
         holder.downloadPercent = (TextView) view.findViewById(R.id.download_percent);
         holder.progressBar = (ProgressBar) view.findViewById(R.id.progressbar);
@@ -106,30 +107,30 @@ public class AppContentAdapter extends BaseAdapter{
 
     /**
      * 根据状态设置图标
-     * @param imageView
+     * @param downloadPercentView
      * @param status
      */
-    private void setIconByStatus(ImageView imageView, AppContent.Status status) {
-        imageView.setVisibility(View.VISIBLE);
+    private void setIconByStatus(DownloadPercentView downloadPercentView, AppContent.Status status) {
+        downloadPercentView.setVisibility(View.VISIBLE);
         if(status == AppContent.Status.PENDING) {
-            imageView.setImageResource(R.drawable.ic_no_download);
+            downloadPercentView.setStatus(DownloadPercentView.STATUS_PEDDING);
         }
         if(status == AppContent.Status.DOWNLOADING) {
-            imageView.setVisibility(View.INVISIBLE);
+            downloadPercentView.setStatus(DownloadPercentView.STATUS_DOWNLOADING);
         }
         if(status == AppContent.Status.WAITING) {
-            imageView.setImageResource(R.drawable.ic_wait);
+            downloadPercentView.setStatus(DownloadPercentView.STATUS_WAITING);
         }
         if(status == AppContent.Status.PAUSED) {
-            imageView.setImageResource(R.drawable.ic_pause);
+            downloadPercentView.setStatus(DownloadPercentView.STATUS_PAUSED);
         }
         if(status == AppContent.Status.FINISHED) {
-            imageView.setImageResource(R.drawable.ic_finished);
+            downloadPercentView.setStatus(DownloadPercentView.STATUS_FINISHED);
         }
     }
 
     private class ViewHolder {
-        private ImageView statusIcon;
+        private DownloadPercentView statusIcon;
         private TextView name;
         private TextView downloadPercent;
         private ProgressBar progressBar;

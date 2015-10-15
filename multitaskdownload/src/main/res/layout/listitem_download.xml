@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 	android:orientation="horizontal"
@@ -9,12 +10,19 @@
 	android:gravity="center_vertical"
     android:descendantFocusability="blocksDescendants" >
 
-	<ImageView
+	<com.bbk.lling.multitaskdownload.view.DownloadPercentView
 		android:id="@+id/status_icon"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_margin="12dp"
-		android:src="@drawable/ic_no_download"/>
+		custom:notBeginImg="@drawable/ic_no_download"
+		custom:waitImg="@drawable/ic_wait"
+		custom:pausedImg="@drawable/ic_pause"
+		custom:finishedImg="@drawable/ic_finished"
+		custom:strokeWidth="2dp"
+		custom:circleColor="#bdbdbd"
+		custom:radius="16dp"
+		custom:ringColor="#52ce90"/>
 
 	<LinearLayout
 		android:layout_width="fill_parent"

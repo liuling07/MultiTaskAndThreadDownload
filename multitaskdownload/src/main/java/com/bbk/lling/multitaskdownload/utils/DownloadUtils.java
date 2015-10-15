@@ -57,12 +57,10 @@ public class DownloadUtils {
         list.add(app10);
         AppContent app11 = new AppContent("虎扑跑步", "http://14.18.142.20/m.wdjcdn.com/apk.wdjcdn.com/1/7c/f0276757ab38391ba24489e224ca87c1.apk");
         list.add(app11);
-        AppContent app12 = new AppContent("虎扑跑步", "http://14.18.142.20/m.wdjcdn.com/apk.wdjcdn.com/1/7c/f0276757ab38391ba24489e224ca87c1.apk");
+        AppContent app12 = new AppContent("大众点评", "http://125.88.65.248/m.wdjcdn.com/apk.wdjcdn.com/6/43/e5f01e24b83295ef6bd04c454377b436.apk");
         list.add(app12);
-        AppContent app13 = new AppContent("大众点评", "http://125.88.65.248/m.wdjcdn.com/apk.wdjcdn.com/6/43/e5f01e24b83295ef6bd04c454377b436.apk");
+        AppContent app13 = new AppContent("一号店", "http://125.88.65.248/m.wdjcdn.com/apk.wdjcdn.com/6/55/188dd88849b9901e3547d9cb104df556.apk");
         list.add(app13);
-        AppContent app14 = new AppContent("一号店", "http://125.88.65.248/m.wdjcdn.com/apk.wdjcdn.com/6/55/188dd88849b9901e3547d9cb104df556.apk");
-        list.add(app14);
         return list;
     }
 }
